@@ -89,6 +89,8 @@ const UserRegistration = () => {
             age : age.value,
             isOnline : isOnline.value,
         });
+        navigate("/");
+        alert("사용자 추가 완료!");
     }
 
   return (
