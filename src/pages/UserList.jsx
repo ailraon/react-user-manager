@@ -14,18 +14,16 @@ import UserListBox from "../components/UserListBox";
 const UserListContainer = styled.div`
   position: relative;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   gap: 20px;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 40px;
 `;
 
 const Fillter = styled.div`
-  position: fixed;
-  width: 100%;
+  width : 240px;
   background-color : #fff;
-  z-index: 5;
-  height: 30px;
+  display: flex;
 `;
 
 const UserList = () => {
@@ -37,9 +35,10 @@ const UserList = () => {
     <>
       <UserListContainer>
         <Fillter>
-          <span>사용자 검색 : </span>
+          <h2>필터</h2>
+          <p>사용자 검색</p>
           <input type="text" placeholder="검색어를 입력하세요." {...keyword} />
-          <span style={{marginLeft : "10px"}}>정렬 기준</span>
+          <p style={{marginLeft : "10px"}}>정렬 기준</p>
           <select style={{marginLeft: "10px"}} onChange={(e) => setFillterOption(e.target.value)}>
             <option value="latest">최신순</option>
             <option value="oldest">오래된순</option>

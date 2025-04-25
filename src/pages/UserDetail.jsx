@@ -53,26 +53,21 @@ const BackButton = styled.button`
 const UserDetail = () => {
     const { id } = useParams();
     const { getUserItem, deleteUserItem } = useContext(UserItemContext);
-    const [user, setUser] = useState({});
+    const user = getUserItem(id);
     const navigate = useNavigate();
 
     useEffect(() => {
-      console.log("test");
-      const userInfo = getUserItem(id);
-      if(!userInfo) {
+      if(!user) {
         navigate("/");
         alert("없는 사용자입니다.");
       }
-      setUser(userInfo);
-    }, [])
+    }, [user, navigate]);
 
     const deleteUser = () => {
       if(confirm("정말 삭제하시겠습니까??") == true) {
         deleteUserItem(id);
         alert("정상적으로 삭제되었습니다.");
         navigate("/");
-      } else {
-        return false;
       }
     }
 
