@@ -22,7 +22,7 @@ function App() {
   return (
     <UserItemProvider>
       <BrowserRouter>
-        <Navi style={{marginBottom: 12}}>
+        <Navi>
           {/* Link : a태그와 동일한 역할을 하지만 react-router-dom을 활용해 spa방식으로 자연스럽게 이동함. */}
           <Link to="/" style={{marginRight: 12}}>유저 목록</Link>
           <Link to="/user" style={{marginRight: 12}}>유저 등록</Link>
