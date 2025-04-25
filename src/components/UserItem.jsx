@@ -12,6 +12,7 @@ const UserCard = styled.div`
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-10px);
@@ -28,30 +29,28 @@ const UserAgeStatus = styled.p`
   color: #555;
 `;
 
-const Button = styled.button`
-  background-color: #007bff;
+const Online = styled.span`
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #3ed13e;
   color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
+`
 
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
+const Offline = styled.span`
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: red;
+  color: white;
+`
 
 const UserItem = ({id, name, age, status}) => {
-    const {deleteUserItem} = useContext(UserItemContext);
-
     const navigate = useNavigate();
 
   return (
-    <UserCard>
-        <UserName onClick={() => navigate("/user/"+ id)}>{name}</UserName>
-        <UserAgeStatus>나이 : {age}, 현재 온라인 상태 {status ? "온라인" : "오프라인"}</UserAgeStatus>
-        <Button onClick={() => deleteUserItem(id)}>삭제</Button>
+    <UserCard onClick={() => navigate("/user/"+ id)}>
+        <UserName>{name}</UserName>
+        <UserAgeStatus>나이 : {age}</UserAgeStatus>
+        <UserAgeStatus>상태 : {status ? (<Online>온라인</Online>) : (<Offline>오프라인</Offline>)}</UserAgeStatus>
     </UserCard>
   )
 }
