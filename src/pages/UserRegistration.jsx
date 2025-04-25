@@ -25,6 +25,7 @@ const FormInput = styled.input`
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  box-sizing: border-box;
 
   &:focus {
     border-color: #007bff;
@@ -63,6 +64,7 @@ const CancelButton = styled.button`
 const InputLabel = styled.label`
     text-align: left;
     margin : 10px 0;
+    display: block;
 `
 
 const InputCheck = styled.input`
