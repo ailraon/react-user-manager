@@ -8,7 +8,7 @@ const useInput = (initialValue) => {
         const replacedValue = value.replace(/^0+/,'');
         if(type === "number") {
           if(/^\d*$/.test(replacedValue))
-            setValue(replacedValu.replace(/[^0-9]/g, ''));
+            setValue(replacedValue.replace(/[^0-9]/g, ''));
         } else {
           setValue(type === "checkbox" ? checked :  value);
         }
