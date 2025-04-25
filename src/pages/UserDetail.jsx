@@ -67,8 +67,13 @@ const UserDetail = () => {
     }, [])
 
     const deleteUser = () => {
-      deleteUserItem(id);
-      navigate("/");
+      if(confirm("정말 삭제하시겠습니까??") == true) {
+        deleteUserItem(id);
+        alert("정상적으로 삭제되었습니다.");
+        navigate("/");
+      } else {
+        return false;
+      }
     }
 
   return (
