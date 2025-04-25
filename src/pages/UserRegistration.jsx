@@ -77,7 +77,7 @@ const InputCheck = styled.input`
 const UserRegistration = () => {
     const {addUserItem} = useContext(UserItemContext);
     const name = useInput("");
-    const age = useInput(0);
+    const age = useInput();
     const isOnline = useInput(false);
     const navigate = useNavigate();
 
@@ -99,9 +99,9 @@ const UserRegistration = () => {
     <FormContainer onSubmit={handelSubmit}>
         <FormHeading>사용자 등록</FormHeading>
         <InputLabel htmlFor="inputName">이름</InputLabel>
-        <FormInput id='inputName' type="text" placeholder='이름...' {...name}/>
+        <FormInput id='inputName' type="text" placeholder='이름을 입력해주세요.' {...name}/>
         <InputLabel htmlFor="inputAge">나이</InputLabel>
-        <FormInput id='inputAge' type="number" {...age} />
+        <FormInput id='inputAge' type="number" placeholder='나이를 입력해주세요.' {...age} />
         <InputLabel htmlFor="inputStatus"><InputCheck id='inputStatus' type="checkbox" {...isOnline}/>온라인 여부</InputLabel>
         
         <SubmitButton>제출</SubmitButton>
