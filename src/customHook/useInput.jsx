@@ -5,7 +5,13 @@ const useInput = (initialValue) => {
 
     const onChange = ev => {
         const { type, checked, value } = ev.target;
-        setValue(type === "checkbox" ? checked : type === "number" ? Number(value) : value);
+        const replacedValue = value.replace(/^0+/,'');
+        if(type === "number") {
+          if(/^\d*$/.test(replacedValue))
+            setValue(replacedValu.replace(/[^0-9]/g, ''));
+        } else {
+          setValue(type === "checkbox" ? checked :  value);
+        }
     }
   return {value, onChange}
 }
