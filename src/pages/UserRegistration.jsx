@@ -83,8 +83,8 @@ const UserRegistration = () => {
 
     const handelSubmit = (e) => {
         e.preventDefault();
-        if(name.value.trim() === "") return; // 이름 입력해야함.
-        if(age.value <= 0) return; // 나이가 0이거나 0보다 낮을 수 없음.
+        if(name.value.trim() === "") return alert("이름은 필수 입력값입니다."); // 이름 입력해야함.
+        if(age.value < 0 || age.value === "") return alert("나이는 0보다 커야합니다."); // 나이가 0이거나 0보다 낮을 수 없음.
         addUserItem({
             key : Date.now(),
             name : name.value,
@@ -105,7 +105,7 @@ const UserRegistration = () => {
         <InputLabel htmlFor="inputStatus"><InputCheck id='inputStatus' type="checkbox" {...isOnline}/>온라인 여부</InputLabel>
         
         <SubmitButton>제출</SubmitButton>
-        <CancelButton onClick={() => navigate("/")}>취소</CancelButton>
+        <CancelButton type='button' onClick={() => navigate("/")}>취소</CancelButton>
     </FormContainer>
   )
 }
