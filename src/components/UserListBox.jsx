@@ -11,6 +11,9 @@ const UserListContainer = styled.div`
   justify-content: center;
   margin-top: 20px;
   padding-top: 50px;
+  height: 100%;
+  align-items: flex-start;
+  overflow-y: scroll;
 `;
 
 const UserListBox = ({keyword, fillterOption}) => {

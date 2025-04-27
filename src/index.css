@@ -12,7 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
 }
 
 a {
@@ -28,7 +28,8 @@ body {
   margin: 0;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  height: calc(100vh - 100px);
+  padding-top: 100px;
 }
 
 h1 {

@@ -4,15 +4,15 @@ import { ThemeContext } from 'styled-components';
 const ThemeContext = React.createContext();
 
 export const ThemeProvider = ({Children}) => {
-  // 테마 종류 : 화이트, 다크 (그외 추가 예정)
-  const [theme, setTheme] = useState("");
+  // 테마 종류 : 
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const changeTheme = (changingTheme) => {
-    setTheme(changingTheme);
-  }
+  const toggleTheme = () => {
+    setIsDarkMode(prev => !prev);
+  };
 
   return (
-    <ThemeContext.Provider value={{theme, changeTheme}}>
+    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
       {Children}
     </ThemeContext.Provider>
   );

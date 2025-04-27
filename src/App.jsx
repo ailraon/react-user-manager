@@ -12,13 +12,13 @@ const Nav = styled.nav`
   display: flex;
   top: 0;
   left: 0;
-  padding: 15px;
   gap: 12px;
   width: 100%;
   background-color: #fff;
   z-index: 100;
   justify-content: space-between;
   align-items: center;
+  height: 100px
 `
 
 const NavLink = styled(Link)`
@@ -47,6 +47,7 @@ const NavLink = styled(Link)`
 `
 
 const Logo = styled.div`
+  margin-left : 40px;
   font-size: 32px;
   font-weight: bold;
 `
@@ -60,7 +61,7 @@ const NavContent = styled.div`
   padding: 0 20px;
   border-radius: 40px;
   box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
-  margin-right: 20px;
+  margin-right: 50px;
 `
 
 function App() {

@@ -44,6 +44,7 @@ const BackButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 20px;
 
   &:hover {
     background-color: #218838;
@@ -76,9 +77,9 @@ const UserDetail = () => {
       {user && (
         <UserDetailContainer>
             <UserDetailHeading>사용자 정보</UserDetailHeading>
-            <UserInfo>{user.name}</UserInfo>
-            <UserInfo>{user.age}살</UserInfo>
-            <UserInfo>현재 {user.status ? "온라인" : "오프라인"} 상태입니다.</UserInfo>
+            <UserInfo>이름 : {user.name}</UserInfo>
+            <UserInfo>나이 : {user.age}살</UserInfo>
+            <UserInfo>상태 : {user.status ? "온라인" : "오프라인"}</UserInfo>
             <BackButton onClick={() => navigate("/")}>뒤로가기</BackButton>
             <ActionButton onClick={deleteUser}>유저 삭제</ActionButton>
         </UserDetailContainer>

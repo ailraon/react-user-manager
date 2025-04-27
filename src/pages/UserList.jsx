@@ -11,20 +11,57 @@ import UserListBox from "../components/UserListBox";
 
 // 필요 상태. 유저 정보 리스트.
 
-const UserListContainer = styled.div`
+const UserListLayout = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
   gap: 20px;
   justify-content: center;
-  margin-top: 40px;
+  height: 80%;
 `;
 
 const Fillter = styled.div`
   width : 240px;
   background-color : #fff;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
+
+const UserListContainer = styled.div`
+  width: 70%;
+  height: 100%;
+  border: 1px solid #c3c3c3;
+  border-radius : 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const FillterBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 20px 0;
+`
+
+const FillterTitle = styled.p`
+  font-size: 16px;
+  font-weight: bold;
+`
+
+const FillterInput = styled.input`
+  width: 80%;
+  height: 30px;
+  padding: 5px;
+`
+
+const FillterSelect = styled.select`
+  width: 80%;
+  height: 30px;
+  padding: 5px;
+`
 
 const UserList = () => {
   const [fillterOption, setFillterOption] = useState("latest");
@@ -33,27 +70,33 @@ const UserList = () => {
 
   return (
     <>
-      <UserListContainer>
+      <UserListLayout>
         <Fillter>
           <h2>필터</h2>
-          <p>사용자 검색</p>
-          <input type="text" placeholder="검색어를 입력하세요." {...keyword} />
-          <p style={{marginLeft : "10px"}}>정렬 기준</p>
-          <select style={{marginLeft: "10px"}} onChange={(e) => setFillterOption(e.target.value)}>
-            <option value="latest">최신순</option>
-            <option value="oldest">오래된순</option>
-            <option value="nameAs">이름순 ↑</option>
-            <option value="nameDe">이름순 ↓</option>
-            <option value="ageAs">나이순 ↑</option>
-            <option value="ageDe">나이순 ↓</option>
-          </select>
+          <FillterBox>
+            <FillterTitle>사용자 검색</FillterTitle>
+            <FillterInput type="text" placeholder="검색어를 입력하세요." {...keyword} />
+          </FillterBox>
+          <FillterBox>
+            <FillterTitle>정렬 기준</FillterTitle>
+            <FillterSelect onChange={(e) => setFillterOption(e.target.value)}>
+              <option value="latest">최신순</option>
+              <option value="oldest">오래된순</option>
+              <option value="nameAs">이름순 ↑</option>
+              <option value="nameDe">이름순 ↓</option>
+              <option value="ageAs">나이순 ↑</option>
+              <option value="ageDe">나이순 ↓</option>
+            </FillterSelect>
+          </FillterBox>
         </Fillter>
-        {userItemList.length > 0 ? (
-          <UserListBox keyword={keyword} fillterOption={fillterOption}></UserListBox>
-        ) : (
-          <div>새로운 사용자를 등록해주세요.</div>
-        )}
-      </UserListContainer>
+        <UserListContainer>
+          {userItemList.length > 0 ? (
+            <UserListBox keyword={keyword} fillterOption={fillterOption}></UserListBox>
+          ) : (
+            <div>새로운 사용자를 등록해주세요.</div>
+          )}
+        </UserListContainer>
+      </UserListLayout>
     </>
   );
 };
